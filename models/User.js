@@ -17,8 +17,18 @@ const userSchema = new Schema(
                 message: 'Email validation failed'
             }
         },
-        thoughts: [Thoughts],
-        friends: [userSchema],
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thoughts',
+            },
+        ],
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User',
+            },
+        ],
     },
 );
 userSchema
