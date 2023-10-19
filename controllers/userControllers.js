@@ -35,7 +35,24 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // @@TODO need a function to update a user
+    // PUT to update a user 
+    async updateUser(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $addToSet: { user: req.params.userId } },
+                { runValidators: true, new: true }
+            );
+
+            if (!user) {
+                return res.status(404).json({ message: 'No user with this id!' });
+            }
+
+            res.json(user);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
     // DELETES a user
     async deleteUser(req, res) {
         try {
