@@ -30,10 +30,15 @@ const userSchema = new Schema(
             },
         ],
     },
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        id: false,
+    }
 );
 userSchema
     .virtual('fullName')
-    // Getter
     .get(function () {
         return `${this.first} ${this.last}`;
     })
