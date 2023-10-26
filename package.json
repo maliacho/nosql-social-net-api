@@ -4,11 +4,8 @@
   "description": "Creating a repo for module 18 challenge, which is a NoSQL Social Network API project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
-    "dev": "nodemon server",
-    "seed": "node utils/seed",
-    "heroku-postbuild": "node utils/seed.js"
+    "dev": "nodemon server"
   },
   "keywords": [],
   "author": "",

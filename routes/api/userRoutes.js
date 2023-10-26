@@ -10,26 +10,19 @@ const {
 } = require('../../controllers/userControllers');
 
 // /api/users
-router
-    .route('/')
+router.route('/')
     .get(getUsers)
     .post(createUser);
 
 // /api/users/:userId
-router
-    .route('/users/:userId')
+router.route('/:id')
     .get(getSingleUser)
     .put(updateUser)
     .delete(deleteUser);
 
-// /api/users/:userId/friends
-router
-    .route('/:userId/friends')
-    .post(addFriend);
-
 // /api/users/:userId/friends/:friendId
-router
-    .route('/:userId/friends/:friendId')
+router.route('/:userId/friends/:friendId')
+    .post(addFriend)
     .delete(removeFriend);
 
 module.exports = router;

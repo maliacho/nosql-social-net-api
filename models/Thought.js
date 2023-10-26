@@ -31,7 +31,7 @@ const thoughtsSchema = new Schema(
         thoughtText: {
             type: String,
             required: true,
-            minLength: 1,
+            minLength: [1, 'Too few characters'],
             maxLength: 280,
         },
         createdAt: {
@@ -43,20 +43,20 @@ const thoughtsSchema = new Schema(
             required: true,
         },
         reactions: [reactionSchema],
-    },
-    {
-        toJSON: {
-            virtuals: true,
-        },
-        id: false,
     }
+    // {
+    //     toJSON: {
+    //         virtuals: true,
+    //     },
+    //     id: false,
+    // }
 );
 
-thoughtsSchema
-    .virtual('reactionCount')
-    .get(function () {
-        return this.reactions.length;
-    });
+// thoughtsSchema
+//     .virtual('reactionCount')
+//     .get(function () {
+//         return this.reactions.length;
+//     });
 
 
 const Thoughts = model('thoughts', thoughtsSchema);
