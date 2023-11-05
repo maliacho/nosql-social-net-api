@@ -19,10 +19,11 @@ WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 
 ## Installation
-
+You will need to install Express and Mongoose as dependencies, and Nodemon as a dev dependency. You can run npm run start or npm run dev to launch the application. 
 
 ## Technologies Used
+VS Code, Insomnia, Node, Mongoose
 
+## Screenshot
 
-## 
 
